@@ -1,45 +1,111 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-09T21:29:48Z",
+  "generatedAt": "2026-11-10T14:11:38Z",
   "indexedCount": 11247,
-  "file": "art-index-ffcdf8d6112a214a.json",
-  "sha256": "ffcdf8d6112a214ab6301f292b35034cbf4d0a587db8d525b07f13190dd6c285",
-  "bytes": 24445001,
-  "contentSha256": "b10f00f02e5d2140769cfa2dc62e4dc24bd0da0de836def74c841c5adc184736",
+  "file": "art-index-0cd6cd8135bd8070.json",
+  "sha256": "0cd6cd8135bd8070cc428ab832c28c20b72dd64f6a4a294a49c9cac062dfc8f3",
+  "bytes": 24458770,
+  "contentSha256": "a8f0d4e1b3a513e807c60629a79a9abc9e197d8354506aeeb14857a848a080ef",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
     "metPendingMetadata": 277,
-    "clevelandError": "The read operation timed out",
+    "clevelandError": "",
     "imageCandidates": 11249,
     "indexedImages": 11247,
+    "pendingImageCount": 2,
     "pendingImages": [
       {
-        "id": "met-45663",
+        "id": "met-42560",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       },
       {
-        "id": "met-42560",
+        "id": "met-45663",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       }
     ],
     "brightnessIndexed": 11246,
-    "workStylesIndexed": 316,
-    "artistStylesIndexed": 2066,
-    "documentedStylesIndexed": 151,
-    "wikiArtWorkStylesIndexed": 241,
-    "wikiArtArtistStylesIndexed": 61,
-    "styleTaggedWorks": 2835,
-    "styleUntaggedWorks": 8412,
-    "styleResolvedArtistIds": 1813,
-    "stylePendingArtistProfiles": 0,
-    "styleArtistLookupFailures": 0,
-    "styleLabelsPendingReview": 39
+    "styleTaggedWorks": 3007,
+    "styleUntaggedWorks": 8242,
+    "byCriterion": {
+      "title": 11248,
+      "artist": 7690,
+      "origin": 11013,
+      "style": 3007,
+      "genre": 5416,
+      "period": 11249,
+      "subject": 7049,
+      "year": 11249,
+      "source": 11249,
+      "orientation": 3375,
+      "brightness": 11246,
+      "visual": 11247
+    },
+    "bySource": {
+      "chicago": {
+        "catalogue": 17,
+        "title": 17,
+        "artist": 17,
+        "origin": 17,
+        "style": 17,
+        "genre": 16,
+        "period": 17,
+        "subject": 17,
+        "year": 17,
+        "source": 17,
+        "orientation": 17,
+        "brightness": 16,
+        "visual": 17
+      },
+      "cleveland": {
+        "catalogue": 3331,
+        "title": 3331,
+        "artist": 1632,
+        "origin": 3312,
+        "style": 620,
+        "period": 3331,
+        "year": 3331,
+        "source": 3331,
+        "orientation": 3331,
+        "brightness": 3331,
+        "visual": 3331,
+        "genre": 697
+      },
+      "masterpieces": {
+        "catalogue": 26,
+        "title": 26,
+        "artist": 26,
+        "origin": 26,
+        "style": 25,
+        "genre": 23,
+        "period": 26,
+        "year": 26,
+        "source": 26,
+        "orientation": 26,
+        "brightness": 26,
+        "visual": 26
+      },
+      "met": {
+        "catalogue": 7875,
+        "title": 7874,
+        "artist": 6015,
+        "origin": 7658,
+        "period": 7875,
+        "subject": 7032,
+        "year": 7875,
+        "source": 7875,
+        "brightness": 7873,
+        "visual": 7873,
+        "style": 2345,
+        "genre": 4680,
+        "orientation": 1
+      }
+    }
   },
   "gzip": {
-    "file": "art-index-dccabf681c087f76.json.gz",
-    "sha256": "dccabf681c087f7624a5b84999fd5ebcdc9ff670fbbc39943974a5a83ed2b807",
-    "bytes": 10609990,
-    "uncompressedBytes": 24445001
+    "file": "art-index-a523e4bf672a13ca.json.gz",
+    "sha256": "a523e4bf672a13cac30d8279893705cc12eaf9fbafcb3b65537557b9acb39d81",
+    "bytes": 10612678,
+    "uncompressedBytes": 24458770
   }
 }
