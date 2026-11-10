@@ -5,7 +5,7 @@ CONTEXT=ROOT/'cache';WORK=CONTEXT/'work/ai-index';SCHEMA=CONTEXT/'outputs/chicag
 parser=argparse.ArgumentParser();parser.add_argument('--offline',action='store_true');parser.add_argument('--skip-collection',action='store_true');parser.add_argument('--verify-portability',action='store_true');parser.add_argument('--publish-dir',type=pathlib.Path,required=True);args=parser.parse_args()
 WORK.mkdir(parents=True,exist_ok=True);SCHEMA.mkdir(parents=True,exist_ok=True)
 for name in ['core.js','museum-catalog.js']:shutil.copyfile(ROOT/'schema'/name,SCHEMA/name)
-for name in ['collect-full-catalog.py','normalize-full-catalog.cjs','build-full-index.py','resolve-missing-previews.py','build-vector-index.py','tone_brightness.py']:shutil.copyfile(ROOT/'scripts'/name,WORK/name)
+for name in ['collect-full-catalog.py','normalize-full-catalog.cjs','build-full-index.py','resolve-missing-previews.py','build-vector-index.py','tone_brightness.py','desktop_publication.py','desktop-catalog.json.gz']:shutil.copyfile(ROOT/'scripts'/name,WORK/name)
 for name in ['gallery-records.json','catalog.json','preview-overrides.json']:
  if not (WORK/name).exists():shutil.copyfile(ROOT/'bootstrap'/name,WORK/name)
 shutil.copyfile(ROOT/'bootstrap/masterpieces.json',WORK/'masterpieces.json')
@@ -80,34 +80,42 @@ for id in probe_ids:
   if clip_cos<.99999 or dino_cos<.99999 or clip_error>.0001 or dino_error>.0001:raise RuntimeError('Independent CPU portability check failed: '+id)
 collection=json.loads((WORK/'full-collection-report.json').read_text(encoding='utf8')) if (WORK/'full-collection-report.json').exists() else {'result':'INCOMPLETE','metEnumeratedIDs':14423}
 inference=json.loads((WORK/'full-index-report.json').read_text(encoding='utf8'))
-payload['coverage']={'collectionResult':collection['result'],'enumeratedMetCandidates':collection.get('metEnumeratedIDs',0),'metPendingMetadata':len(collection.get('metFailures',[])),
- 'clevelandError':str(collection.get('clevelandError') or '')[:200],
- 'imageCandidates':inference['catalogCount'],'indexedImages':inference['indexedCount'],'pendingImages':inference['failed']}
+from scripts.desktop_publication import coverage_for, legacy_record, select_legacy_vectors
+from scripts.style_metadata import enrich_styles
+from publish_index import load_previous,publish_index
+
+# Encode the entire catalogue for the expanded desktop channel.
 payload['updateManifest']='https://raw.githubusercontent.com/alexmolty/Art-Gallery-for-Wallpaper-Engine/art-index/manifest.json'
-# Generate v2 from the same verified records and FP32 image features. The
-# optional rowwise INT8 encoding is storage only; it is not model inference.
 (WORK/'full-index.json').write_text(json.dumps(payload,ensure_ascii=True,separators=(',',':')),encoding='utf8')
 run('build-vector-index.py')
 vector_payload=json.loads((WORK/'vector-index.json').read_text(encoding='utf8'))
-vector_payload['coverage']['brightnessIndexed']=sum('toneBrightness' in record for record in vector_payload['records'])
-from scripts.style_metadata import enrich_styles
-from publish_index import load_previous,publish_index
 destination=args.publish_dir.resolve();destination.mkdir(parents=True,exist_ok=True)
-_, previous_vector = load_previous(destination/'v2')
+_, previous_vector = load_previous(destination/'desktop'/'v2')
+if not previous_vector:
+ _, previous_vector = load_previous(destination/'v2')
 inventory=json.loads((WORK/'full-catalog.json').read_text(encoding='utf8'))
-vector_payload['coverage'].update(enrich_styles(
- vector_payload, inventory, WORK, previous_vector or {},
- not args.offline, min(time.time()+420,float(os.environ['ART_INDEX_RUN_DEADLINE']))))
-result=publish_index(destination/'v2',vector_payload)
+style_report=enrich_styles(vector_payload, inventory, WORK, previous_vector or {},
+ not args.offline, min(time.time()+420,float(os.environ['ART_INDEX_RUN_DEADLINE'])))
+failures=inference['failed']
+desktop_coverage=coverage_for(inventory,vector_payload['records'],failures,collection)
+desktop_coverage.update({key:value for key,value in style_report.items() if key not in ('styleTaggedWorks','styleUntaggedWorks')})
+desktop_payload={**vector_payload,'coverage':desktop_coverage,
+ 'updateManifest':'https://raw.githubusercontent.com/alexmolty/Classical-Gallery/art-index/desktop/v2/manifest.json'}
+result=publish_index(destination/'desktop'/'v2',desktop_payload)
+print('DESKTOP_VECTOR_PUBLICATION '+json.dumps(result),flush=True)
+
+# Keep the old desktop and Wallpaper Engine clients on compatible identifiers.
+legacy_inventory=[art for art in inventory if legacy_record(art['metadata'])]
+legacy_vector_records=[art for art in vector_payload['records'] if legacy_record(art)]
+legacy_coverage=coverage_for(legacy_inventory,legacy_vector_records,failures,collection)
+result=publish_index(destination/'v2',select_legacy_vectors(vector_payload,legacy_coverage))
 print('VECTOR_PUBLICATION '+json.dumps(result),flush=True)
-# Old subscribers retain their v1 manifest and payload when the expanded
-# neighbor table exceeds the legacy client's 32 MiB limit.
-legacy_records=[{key:value for key,value in a.items() if key!='toneBrightness'}
- for a in payload['records'] if not str(a['id']).startswith('masterpiece-')]
-legacy_ids={str(a['id']) for a in legacy_records}
+legacy_records=[{key:value for key,value in art.items() if key!='toneBrightness'}
+ for art in payload['records'] if legacy_record(art) and not str(art['id']).startswith('masterpiece-')]
+legacy_ids={str(art['id']) for art in legacy_records}
 legacy_payload={**payload,'indexedCount':len(legacy_records),'records':legacy_records,
- 'neighbors':{id:[row for row in rows if str(row[0]) in legacy_ids] for id,rows in payload['neighbors'].items() if str(id) in legacy_ids},
- 'coverage':{**payload['coverage'],'indexedImages':len(legacy_records),'curatedWorksExcluded':payload['indexedCount']-len(legacy_records)}}
+ 'neighbors':{id:[row for row in rows if str(row[0]) in legacy_ids] for id,rows in payload['neighbors'].items() if id in legacy_ids},
+ 'coverage':coverage_for([art for art in legacy_inventory if not art['id'].startswith('masterpiece-')],legacy_records,failures,collection)}
 legacy_bytes=len(json.dumps(legacy_payload,ensure_ascii=True,separators=(',',':')).encode('utf8'))
 if legacy_bytes>32*1024*1024 and previous:
  print('LEGACY_PUBLICATION '+json.dumps({'result':'RETAINED','reason':'legacy size limit','indexedCount':previous.get('indexedCount'),'bytes':legacy_bytes}),flush=True)

@@ -50,13 +50,68 @@ for(const art of curated){
  }else byId.set(art.id,art);
  previews.set(art.id,art.imageUrl);
 }
+
+// Import the desktop's reviewed public museum snapshot. Live Met and Cleveland
+// records remain authoritative when the APIs remove or replace an image.
+const desktopPath=path.join(here,'desktop-catalog.json.gz');
+const desktop=fs.existsSync(desktopPath)
+ ? JSON.parse(require('node:zlib').gunzipSync(fs.readFileSync(desktopPath), {maxOutputLength:32*1024*1024}))
+ : {records:[], supplementalStyles:{}};
+const desktopSources=new Map([
+ ['nga',['api.nga.gov','/iiif/']],['rijks',['iiif.micr.io','/']],['getty',['media.getty.edu','/iiif/image/']],
+ ['smk',['iip.smk.dk','/iiif/jp2/']],['stockholm',['thumb.wikimedia.org','/wikipedia/commons/thumb/']],
+ ['ateneum',['kokoelma.kansallisgalleria.fi','/media-assets/']],['sinebrychoff',['kokoelma.kansallisgalleria.fi','/media-assets/']]
+]);
+function verifiedLink(value,host,prefix) {
+ try { const u=new URL(value); return u.protocol==='https:'&&!u.username&&!u.password&&u.hostname===host&&u.pathname.startsWith(prefix); }
+ catch { return false; }
+}
+for(const art of desktop.records) {
+ const id=String(art.id), source=art.sourceMuseum;
+ if(source==='met'||source==='cleveland')continue;
+ const rule=desktopSources.get(source);
+ if(rule) {
+  const validId=source==='getty'?/^getty-[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/.test(id):id.startsWith(source+'-')&&/^\d+$/.test(id.slice(source.length+1));
+  const licensed=source==='nga'?art.imageLicense==='CC0':/^https:\/\/creativecommons\.org\/publicdomain\/(zero|mark)\/1\.0\/$/.test(art.rightsUrl||'');
+  if(!validId||!licensed||!verifiedLink(art.imageUrl,...rule)||art.indexPreviewUrl&&!verifiedLink(art.indexPreviewUrl,...rule))
+   throw new Error('Invalid desktop artwork: '+id);
+ }else if(source==='chicago'){
+  const allowed=url=>['thumb.wikimedia.org','upload.wikimedia.org'].some(host=>verifiedLink(url,host,'/wikipedia/commons/'));
+  if(!/^\d+$/.test(id)||!allowed(art.imageUrl)||art.indexPreviewUrl&&!allowed(art.indexPreviewUrl))
+   throw new Error('Invalid Chicago artwork: '+id);
+ }else throw new Error('Unexpected desktop museum: '+source);
+ if(art.local||art.localImage||!art.pageUrl)throw new Error('Invalid shared artwork: '+id);
+ byId.set(id,C.mergeArtworkMetadata(byId.get(id),art));
+ if(art.indexPreviewUrl)previews.set(id,art.indexPreviewUrl);
+}
+for(const [id, art] of byId){
+ const supplemental=desktop.supplementalStyles[id];
+ if(supplemental&&!C.movementsFor(art).length)byId.set(id,{...art,...supplemental});
+}
+function hasStyle(art) {
+ return C.movementsFor(art).length>0||
+  !!art.workMovements?.length&&!!(art.workStyleWikidata||art.workStyleSourceUrl)||
+  !!art.artistMovements?.length&&!!(art.artistStyleWikidata||art.artistStyleSourceUrl);
+}
+function tagCoverage(art) {
+ return {
+  title:!!art.title&&!/^(untitled|unknown)$/i.test(art.title),
+  artist:!!art.artist&&!/^(unknown|unidentified|anonymous|unknown artist|artist unknown|unidentified artist)$/i.test(art.artist),
+  origin:C.originsFor(art).some(origin=>origin!=='Unspecified'),
+  style:hasStyle(art), genre:C.genresFor(art).length>0,
+  period:C.periodsFor(art).some(period=>period!=='undated'),
+  subject:[...(Array.isArray(art.subjects)?art.subjects:[]),...(Array.isArray(art.tags)?art.tags:[])].some(tag=>!!(typeof tag==='string'?tag.trim():tag?.term||tag?.name)),
+  year:Number.isInteger(art.dateStart)||Number.isInteger(art.dateEnd),
+  source:!!art.sourceMuseum, orientation:art.width>0&&art.height>0
+ };
+}
 const inventory=[...byId.values()].filter(a=>C.eligible(a,C.settings({}))).map(art=>({
  id:String(art.id),title:art.title,artist:art.artist,artistKey:C.artistKey(art.artist),pageUrl:art.pageUrl,imageUrl:art.imageUrl,
  previewUrl:previews.get(String(art.id))||originalPreviews.get(String(art.id))?.previewUrl||art.imageUrl,
  ...(originalPreviews.get(String(art.id))?.localPath?{localPath:originalPreviews.get(String(art.id)).localPath}:{}),
- artistWikidataId: artistReferences.get(String(art.id)),
+ artistWikidataId: artistReferences.get(String(art.id)) || art.artistStyleWikidata,
  artistCountries: [...new Set([art.artistNationality, ...(art.artistNationalities || [])].flatMap(C.nationalityOriginsFor))],
- hasDocumentedStyle: C.movementsFor(art).length > 0,
+ hasDocumentedStyle:hasStyle(art), tagCoverage:tagCoverage(art),
  metadata:art
 }));
 fs.writeFileSync(path.join(here,'full-catalog.json'),JSON.stringify(inventory));

@@ -8,6 +8,7 @@ import numpy as np
 import onnxruntime as ort
 from PIL import Image,ImageOps
 from tone_brightness import measure_brightness,measure_legacy_preview
+from desktop_publication import legacy_record
 Image.MAX_IMAGE_PIXELS=48_000_000
 PREVIEWS=HERE/'previews';PREVIEWS.mkdir(exist_ok=True);FEATURES=HERE/'full-features';FEATURES.mkdir(exist_ok=True)
 catalog=json.loads((HERE/'full-catalog.json').read_text(encoding='utf8'))
@@ -129,13 +130,18 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
 order=np.argsort([a['id'] for a in indexed]);indexed=[indexed[i] for i in order]
 cv=np.stack(clip_vectors)[order];dv=np.stack(dino_vectors)[order]
 np.save(HERE/'full-clip-vectors.npy',cv);np.save(HERE/'full-dino-vectors.npy',dv)
+# Only the original clients consume precomputed neighbors. The expanded desktop
+# catalogue uses its vector matrix and does not need an additional quadratic pass.
 neighbors={};count=len(indexed)
-for start in range(0,count,64):
- scores=.8*(cv[start:start+64]@cv.T)+.2*(dv[start:start+64]@dv.T)
+legacy_positions=[i for i,art in enumerate(indexed) if legacy_record(art['metadata'])]
+legacy_cv,legacy_dv=cv[legacy_positions],dv[legacy_positions]
+legacy_count=len(legacy_positions)
+for start in range(0,legacy_count,64):
+ scores=.8*(legacy_cv[start:start+64]@legacy_cv.T)+.2*(legacy_dv[start:start+64]@legacy_dv.T)
  for offset,row in enumerate(scores):
   i=start+offset;row[i]=-1
-  top=np.argpartition(-row,min(79,count-1))[:min(80,count-1)];top=top[np.argsort(-row[top])]
-  neighbors[indexed[i]['id']]=[[indexed[j]['id'],round(float(row[j]),5)] for j in top if row[j]>=.45]
+  top=np.argpartition(-row,min(79,legacy_count-1))[:min(80,legacy_count-1)];top=top[np.argsort(-row[top])]
+  neighbors[indexed[legacy_positions[i]]['id']]=[[indexed[legacy_positions[j]]['id'],round(float(row[j]),5)] for j in top if row[j]>=.45]
 payload={'version':1,'model':'CLIP ViT-B/32 + DINOv2 ViT-S/14','indexedCount':count,'minimumScore':.45,
  'clip':{'repository':'Xenova/clip-vit-base-patch32','revision':'d15189d','sha256':model_hashes[1],'precision':'float32','weight':.8},
  'dino':{'repository':'Xenova/dinov2-small','revision':'c2bb04a','sha256':model_hashes[0],'weight':.2},
