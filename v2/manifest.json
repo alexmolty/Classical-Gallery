@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-10T18:40:44Z",
+  "generatedAt": "2026-11-12T18:59:30Z",
   "indexedCount": 11247,
-  "file": "art-index-1519d0194a9de791.json",
-  "sha256": "1519d0194a9de791bcb4f8eea46881ce73e9196eba0441415dac5d264e34c3e8",
-  "bytes": 24458843,
-  "contentSha256": "0e6dee156461670a79b5bece35857d96390c027964ec38fc3d6d4855bc73ab6c",
+  "file": "art-index-7f009499e27a0725.json",
+  "sha256": "7f009499e27a072553197c140e4df804b341efae09c0315979b24c53691f9f44",
+  "bytes": 24458640,
+  "contentSha256": "d8bddbb8e4b1c3270b3149c2c715175eb7e86655607574108548c688c118c278",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
     "metPendingMetadata": 277,
-    "clevelandError": "Cleveland pagination returned 3902 unique records for 3907 reported items",
+    "clevelandError": "",
     "imageCandidates": 11249,
     "indexedImages": 11247,
     "pendingImageCount": 2,
@@ -103,9 +103,9 @@
     }
   },
   "gzip": {
-    "file": "art-index-adfcd998c2063523.json.gz",
-    "sha256": "adfcd998c206352349edefe58209be40327fb07492b8b22327e4531dd1d247da",
-    "bytes": 10612733,
-    "uncompressedBytes": 24458843
+    "file": "art-index-c309eb7a062e8c0a.json.gz",
+    "sha256": "c309eb7a062e8c0ad45215ca56a10309c546f91c3d49c2e3f655a9ddb97b1e7d",
+    "bytes": 10612741,
+    "uncompressedBytes": 24458640
   }
 }
