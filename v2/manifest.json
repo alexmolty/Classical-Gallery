@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-12T18:59:30Z",
+  "generatedAt": "2026-11-13T18:28:32Z",
   "indexedCount": 11247,
-  "file": "art-index-7f009499e27a0725.json",
-  "sha256": "7f009499e27a072553197c140e4df804b341efae09c0315979b24c53691f9f44",
-  "bytes": 24458640,
-  "contentSha256": "d8bddbb8e4b1c3270b3149c2c715175eb7e86655607574108548c688c118c278",
+  "file": "art-index-15255b90f632ab53.json",
+  "sha256": "15255b90f632ab53ff3b07c0fbacd3f86e30c1ab1cacbe9c7304981364f90902",
+  "bytes": 24458576,
+  "contentSha256": "1f1e7e37e3720ea1670407e1694a73f42f707e22ac0b9a19ce0dedbce986000f",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
@@ -16,21 +16,21 @@
     "pendingImageCount": 2,
     "pendingImages": [
       {
-        "id": "met-45663",
+        "id": "met-42560",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       },
       {
-        "id": "met-42560",
+        "id": "met-45663",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       }
     ],
-    "brightnessIndexed": 11246,
+    "brightnessIndexed": 11247,
     "styleTaggedWorks": 3007,
     "styleUntaggedWorks": 8242,
     "byCriterion": {
       "title": 11248,
       "artist": 7690,
-      "origin": 11013,
+      "origin": 11010,
       "style": 3007,
       "genre": 5416,
       "period": 11249,
@@ -38,7 +38,7 @@
       "year": 11249,
       "source": 11249,
       "orientation": 3375,
-      "brightness": 11246,
+      "brightness": 11247,
       "visual": 11247
     },
     "bySource": {
@@ -54,14 +54,14 @@
         "year": 17,
         "source": 17,
         "orientation": 17,
-        "brightness": 16,
+        "brightness": 17,
         "visual": 17
       },
       "cleveland": {
         "catalogue": 3331,
         "title": 3331,
         "artist": 1632,
-        "origin": 3312,
+        "origin": 3309,
         "style": 620,
         "period": 3331,
         "year": 3331,
@@ -103,9 +103,9 @@
     }
   },
   "gzip": {
-    "file": "art-index-c309eb7a062e8c0a.json.gz",
-    "sha256": "c309eb7a062e8c0ad45215ca56a10309c546f91c3d49c2e3f655a9ddb97b1e7d",
-    "bytes": 10612741,
-    "uncompressedBytes": 24458640
+    "file": "art-index-203411a2179aff4c.json.gz",
+    "sha256": "203411a2179aff4c7f9bfa49c92d95eaa4182dc620428067ca706b5002b324b2",
+    "bytes": 10612736,
+    "uncompressedBytes": 24458576
   }
 }

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-12T18:59:30Z",
+  "generatedAt": "2026-11-13T18:28:32Z",
   "indexedCount": 18656,
-  "file": "art-index-ba73ac9e38d120c8.json",
-  "sha256": "ba73ac9e38d120c8a8fe39290469e3c9498d869be8e7b90785c85b53ed016641",
-  "bytes": 40453183,
-  "contentSha256": "8179b988301427817b739b2496fb38e1e8f2114b66e39132b4174d81769910a9",
+  "file": "art-index-bcf39ba259e81134.json",
+  "sha256": "bcf39ba259e81134dcb20330362d4ea1cce7e54975f6d47a7c354ffcc0deb488",
+  "bytes": 40453119,
+  "contentSha256": "274be996d69c40046ff38cdd20b40ecf8c3b7da86f52fc5b3ee6ec5bc7af4bed",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
@@ -16,21 +16,21 @@
     "pendingImageCount": 2,
     "pendingImages": [
       {
-        "id": "met-45663",
+        "id": "met-42560",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       },
       {
-        "id": "met-42560",
+        "id": "met-45663",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       }
     ],
-    "brightnessIndexed": 18655,
+    "brightnessIndexed": 18656,
     "styleTaggedWorks": 7161,
     "styleUntaggedWorks": 11497,
     "byCriterion": {
       "title": 18656,
       "artist": 14955,
-      "origin": 17629,
+      "origin": 17626,
       "style": 7161,
       "genre": 8250,
       "period": 18304,
@@ -38,7 +38,7 @@
       "year": 18304,
       "source": 18658,
       "orientation": 10784,
-      "brightness": 18655,
+      "brightness": 18656,
       "visual": 18656
     },
     "bySource": {
@@ -69,14 +69,14 @@
         "year": 17,
         "source": 17,
         "orientation": 17,
-        "brightness": 16,
+        "brightness": 17,
         "visual": 17
       },
       "cleveland": {
         "catalogue": 3331,
         "title": 3331,
         "artist": 1632,
-        "origin": 3312,
+        "origin": 3309,
         "style": 620,
         "period": 3331,
         "year": 3331,
@@ -214,9 +214,9 @@
     "styleLabelsPendingReview": 38
   },
   "gzip": {
-    "file": "art-index-7a39e1f351bc146a.json.gz",
-    "sha256": "7a39e1f351bc146a7607c7c684b6f8697f9a1bed51d94e174edcabfd46b0dfa2",
-    "bytes": 17811880,
-    "uncompressedBytes": 40453183
+    "file": "art-index-b166144f3ba0595e.json.gz",
+    "sha256": "b166144f3ba0595e23eb369ce787a521c5ec9c0add6e73accc97f242b1800860",
+    "bytes": 17811876,
+    "uncompressedBytes": 40453119
   }
 }
