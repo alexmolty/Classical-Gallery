@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-13T18:28:32Z",
+  "generatedAt": "2026-11-14T17:06:26Z",
   "indexedCount": 11221,
-  "file": "art-index-1a8c88224a8c7537.json",
-  "sha256": "1a8c88224a8c75379c7e25593f1984dd48716e85bcb65373e0e569db156e765e",
-  "bytes": 30748170,
-  "contentSha256": "ff5016c61884e8601f7d080fb89c543ff7b7a1c90161933ec9107586c4d9c086",
+  "file": "art-index-58b23836ee680f62.json",
+  "sha256": "58b23836ee680f62be16cf7d04d8947b29163b33acfa80f948278fd90cc08d73",
+  "bytes": 30748764,
+  "contentSha256": "9c8983a4656003defa7dbac2af112759c510f8a58f523f5434d701c0191dd019",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
@@ -30,7 +30,7 @@
     "byCriterion": {
       "title": 11222,
       "artist": 7664,
-      "origin": 10984,
+      "origin": 10990,
       "style": 312,
       "genre": 5393,
       "period": 11223,
@@ -60,7 +60,7 @@
         "catalogue": 3331,
         "title": 3331,
         "artist": 1632,
-        "origin": 3309,
+        "origin": 3315,
         "period": 3331,
         "year": 3331,
         "source": 3331,
@@ -86,9 +86,9 @@
     }
   },
   "gzip": {
-    "file": "art-index-8b117da432e5456a.json.gz",
-    "sha256": "8b117da432e5456a86f705ec68d54a18cf45b29f45898975166afa1f2ebd4384",
-    "bytes": 6124383,
-    "uncompressedBytes": 30748170
+    "file": "art-index-b7eff99cb9885868.json.gz",
+    "sha256": "b7eff99cb9885868e3598636d89686196558dafd305ec70785ea6933e97650e8",
+    "bytes": 6124296,
+    "uncompressedBytes": 30748764
   }
 }

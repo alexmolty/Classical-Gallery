@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T18:28:32Z",
+  "generatedAt": "2026-11-14T17:06:26Z",
   "indexedCount": 18656,
-  "file": "art-index-bcf39ba259e81134.json",
-  "sha256": "bcf39ba259e81134dcb20330362d4ea1cce7e54975f6d47a7c354ffcc0deb488",
-  "bytes": 40453119,
-  "contentSha256": "274be996d69c40046ff38cdd20b40ecf8c3b7da86f52fc5b3ee6ec5bc7af4bed",
+  "file": "art-index-4b84826073cae934.json",
+  "sha256": "4b84826073cae934695841c29feed0ad6d0afe0d532c05118dedc38ea6f67818",
+  "bytes": 40453612,
+  "contentSha256": "191a94b540c5783647d80a64c1e62d0b9a70307e8a423498a8c51a50792a968b",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
@@ -30,7 +30,7 @@
     "byCriterion": {
       "title": 18656,
       "artist": 14955,
-      "origin": 17626,
+      "origin": 17632,
       "style": 7161,
       "genre": 8250,
       "period": 18304,
@@ -76,7 +76,7 @@
         "catalogue": 3331,
         "title": 3331,
         "artist": 1632,
-        "origin": 3309,
+        "origin": 3315,
         "style": 620,
         "period": 3331,
         "year": 3331,
@@ -203,10 +203,10 @@
         "style": 13
       }
     },
-    "workStylesIndexed": 316,
-    "artistStylesIndexed": 2090,
+    "workStylesIndexed": 318,
+    "artistStylesIndexed": 2089,
     "documentedStylesIndexed": 4385,
-    "wikiArtWorkStylesIndexed": 254,
+    "wikiArtWorkStylesIndexed": 253,
     "wikiArtArtistStylesIndexed": 116,
     "styleResolvedArtistIds": 2045,
     "stylePendingArtistProfiles": 0,
@@ -214,9 +214,9 @@
     "styleLabelsPendingReview": 38
   },
   "gzip": {
-    "file": "art-index-b166144f3ba0595e.json.gz",
-    "sha256": "b166144f3ba0595e23eb369ce787a521c5ec9c0add6e73accc97f242b1800860",
-    "bytes": 17811876,
-    "uncompressedBytes": 40453119
+    "file": "art-index-117974e7ce22e47f.json.gz",
+    "sha256": "117974e7ce22e47fb0bc4219d446f0787ccc6996a9a25169457e0c0c2f893c27",
+    "bytes": 17811937,
+    "uncompressedBytes": 40453612
   }
 }
