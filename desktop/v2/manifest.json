@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-15T17:47:00Z",
-  "indexedCount": 18656,
-  "file": "art-index-72d608c8a8f92e9b.json",
-  "sha256": "72d608c8a8f92e9b341844909859b014a2127ee928a25cbb4e9573d3b5b5ad58",
-  "bytes": 40453685,
-  "contentSha256": "b90b92ba76a0c72806373cc873d8fd80bc970dbfb164e8d10670a6c9251e9abf",
+  "generatedAt": "2026-11-17T19:48:57Z",
+  "indexedCount": 18713,
+  "file": "art-index-6bd858b8b26a48bb.json",
+  "sha256": "6bd858b8b26a48bb8da0566b242b97d166709fee2cb6a12c944c3c66b2bd2e72",
+  "bytes": 40577659,
+  "contentSha256": "cb1acc2b204ca293eabbd73120326a4b8bfbdbd83ab6d583c991251bc29f0789",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
     "metPendingMetadata": 277,
-    "clevelandError": "Cleveland pagination returned 3902 unique records for 3907 reported items",
-    "imageCandidates": 18658,
-    "indexedImages": 18656,
+    "clevelandError": "",
+    "imageCandidates": 18715,
+    "indexedImages": 18713,
     "pendingImageCount": 2,
     "pendingImages": [
       {
@@ -24,22 +24,22 @@
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       }
     ],
-    "brightnessIndexed": 18656,
-    "styleTaggedWorks": 7161,
-    "styleUntaggedWorks": 11497,
+    "brightnessIndexed": 18713,
+    "styleTaggedWorks": 7165,
+    "styleUntaggedWorks": 11550,
     "byCriterion": {
-      "title": 18656,
-      "artist": 14955,
-      "origin": 17632,
-      "style": 7161,
-      "genre": 8250,
-      "period": 18304,
+      "title": 18713,
+      "artist": 15012,
+      "origin": 17689,
+      "style": 7165,
+      "genre": 8262,
+      "period": 18361,
       "subject": 12010,
-      "year": 18304,
-      "source": 18658,
-      "orientation": 10784,
-      "brightness": 18656,
-      "visual": 18656
+      "year": 18361,
+      "source": 18715,
+      "orientation": 10841,
+      "brightness": 18713,
+      "visual": 18713
     },
     "bySource": {
       "ateneum": {
@@ -73,18 +73,18 @@
         "visual": 17
       },
       "cleveland": {
-        "catalogue": 3331,
-        "title": 3331,
-        "artist": 1632,
-        "origin": 3315,
-        "style": 620,
-        "period": 3331,
-        "year": 3331,
-        "source": 3331,
-        "orientation": 3331,
-        "brightness": 3331,
-        "visual": 3331,
-        "genre": 697
+        "catalogue": 3388,
+        "title": 3388,
+        "artist": 1689,
+        "origin": 3372,
+        "style": 624,
+        "period": 3388,
+        "year": 3388,
+        "source": 3388,
+        "orientation": 3388,
+        "brightness": 3388,
+        "visual": 3388,
+        "genre": 709
       },
       "getty": {
         "catalogue": 265,
@@ -204,19 +204,19 @@
       }
     },
     "workStylesIndexed": 318,
-    "artistStylesIndexed": 2089,
+    "artistStylesIndexed": 2092,
     "documentedStylesIndexed": 4385,
-    "wikiArtWorkStylesIndexed": 253,
+    "wikiArtWorkStylesIndexed": 254,
     "wikiArtArtistStylesIndexed": 116,
     "styleResolvedArtistIds": 2045,
     "stylePendingArtistProfiles": 0,
     "styleArtistLookupFailures": 0,
-    "styleLabelsPendingReview": 38
+    "styleLabelsPendingReview": 41
   },
   "gzip": {
-    "file": "art-index-79ef942101bf3dab.json.gz",
-    "sha256": "79ef942101bf3dab5878753e396693c29719c5367329229d422c3cc04b311a4a",
-    "bytes": 17811991,
-    "uncompressedBytes": 40453685
+    "file": "art-index-bb1632c863cae0bc.json.gz",
+    "sha256": "bb1632c863cae0bcbd3fc33064bcb15cd53a9bea40de9991229798a5fa16422f",
+    "bytes": 17868672,
+    "uncompressedBytes": 40577659
   }
 }

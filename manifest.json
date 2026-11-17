@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T17:47:00Z",
-  "indexedCount": 11221,
-  "file": "art-index-6cde05d372b898cf.json",
-  "sha256": "6cde05d372b898cf152b0bdc3c18ed383d4f119d4fb3f4253d8a4a4f6285696b",
-  "bytes": 30748837,
-  "contentSha256": "f9b7b27fa7b727bdce222caec2f4fb34b9ddcaf4b23d55710dd907695b18b20e",
+  "generatedAt": "2026-11-17T19:48:57Z",
+  "indexedCount": 11278,
+  "file": "art-index-99e8e07e3c145b3c.json",
+  "sha256": "99e8e07e3c145b3c68fc8b861bc9e9b4c1f69781abf2cce7b52fd54f97cadc31",
+  "bytes": 30906336,
+  "contentSha256": "47a76d76bb6104b580f07f19cc458c19925c8e3960fdd9f270fe3961239e4594",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14426,
     "metPendingMetadata": 277,
-    "clevelandError": "Cleveland pagination returned 3902 unique records for 3907 reported items",
-    "imageCandidates": 11223,
-    "indexedImages": 11221,
+    "clevelandError": "",
+    "imageCandidates": 11280,
+    "indexedImages": 11278,
     "pendingImageCount": 2,
     "pendingImages": [
       {
@@ -26,20 +26,20 @@
     ],
     "brightnessIndexed": 0,
     "styleTaggedWorks": 312,
-    "styleUntaggedWorks": 10911,
+    "styleUntaggedWorks": 10968,
     "byCriterion": {
-      "title": 11222,
-      "artist": 7664,
-      "origin": 10990,
+      "title": 11279,
+      "artist": 7721,
+      "origin": 11047,
       "style": 312,
-      "genre": 5393,
-      "period": 11223,
+      "genre": 5405,
+      "period": 11280,
       "subject": 7049,
-      "year": 11223,
-      "source": 11223,
-      "orientation": 3349,
+      "year": 11280,
+      "source": 11280,
+      "orientation": 3406,
       "brightness": 0,
-      "visual": 11221
+      "visual": 11278
     },
     "bySource": {
       "chicago": {
@@ -57,16 +57,16 @@
         "visual": 17
       },
       "cleveland": {
-        "catalogue": 3331,
-        "title": 3331,
-        "artist": 1632,
-        "origin": 3315,
-        "period": 3331,
-        "year": 3331,
-        "source": 3331,
-        "orientation": 3331,
-        "visual": 3331,
-        "genre": 697,
+        "catalogue": 3388,
+        "title": 3388,
+        "artist": 1689,
+        "origin": 3372,
+        "period": 3388,
+        "year": 3388,
+        "source": 3388,
+        "orientation": 3388,
+        "visual": 3388,
+        "genre": 709,
         "style": 282
       },
       "met": {
@@ -86,9 +86,9 @@
     }
   },
   "gzip": {
-    "file": "art-index-9aac1578ffcf1faf.json.gz",
-    "sha256": "9aac1578ffcf1faf333e9052b1921267fbc3e2bab186044a8f82ad225285eec7",
-    "bytes": 6124355,
-    "uncompressedBytes": 30748837
+    "file": "art-index-f5b1910d5e7c50fe.json.gz",
+    "sha256": "f5b1910d5e7c50fe345fdccb98d40ec4c68ca8ea9fc35e216d2426ee041e75ed",
+    "bytes": 6160039,
+    "uncompressedBytes": 30906336
   }
 }
