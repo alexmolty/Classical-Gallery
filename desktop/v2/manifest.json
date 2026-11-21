@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-20T19:15:10Z",
+  "generatedAt": "2026-11-21T18:09:00Z",
   "indexedCount": 18713,
-  "file": "art-index-c5adbac4214967f5.json",
-  "sha256": "c5adbac4214967f565dc40ab349cba281a5efd6489aecd3a6949b3efd465cbd7",
+  "file": "art-index-1ae61cf4916eaa83.json",
+  "sha256": "1ae61cf4916eaa834ced251889218fd52afeb82ef0e9684161cdb43b31c4974d",
   "bytes": 40577819,
-  "contentSha256": "df20e5acb959e95b68d98d8f683e66be9b78059d69bf7a478d05c6457859c8d8",
+  "contentSha256": "ca3b7789aebdb9c11bce851a269b3340cb9a8d333e6943356dc7d21e14983260",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14425,
@@ -17,11 +17,11 @@
     "pendingImages": [
       {
         "id": "met-42560",
-        "error": "cannot identify image file <_io.BytesIO object at 0x722a679c29d0>; cannot identify image file <_io.BytesIO object at 0x722a485c7380>"
+        "error": "cannot identify image file <_io.BytesIO object at 0x7b4858565760>; cannot identify image file <_io.BytesIO object at 0x7b484bc10c70>"
       },
       {
         "id": "met-45663",
-        "error": "cannot identify image file <_io.BytesIO object at 0x722a48c56ac0>; cannot identify image file <_io.BytesIO object at 0x722a485c7420>"
+        "error": "cannot identify image file <_io.BytesIO object at 0x7b484bff4680>; cannot identify image file <_io.BytesIO object at 0x7b484bc10fe0>"
       }
     ],
     "brightnessIndexed": 18713,
@@ -214,9 +214,9 @@
     "styleLabelsPendingReview": 41
   },
   "gzip": {
-    "file": "art-index-008853edadacf370.json.gz",
-    "sha256": "008853edadacf37049203938215e430d82bca50e86990d53ce67f88de423ef74",
-    "bytes": 17868849,
+    "file": "art-index-efc48cae50eb27da.json.gz",
+    "sha256": "efc48cae50eb27da18f963aa7211becccb1ddc2cd3cb9adb3b8674c858cd5360",
+    "bytes": 17868840,
     "uncompressedBytes": 40577819
   }
 }
