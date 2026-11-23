@@ -51,6 +51,25 @@ class BackfillTests(unittest.TestCase):
             self.assertEqual(len(calls), 1)
             self.assertEqual(report["networkRequests"], 0)
 
+    def test_throttled_provider_does_not_block_other_museums(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            payload = {"records": [
+                {"id": "met-1", "indexPreviewUrl": "https://images.metmuseum.org/a.jpg"},
+                {"id": "met-2", "indexPreviewUrl": "https://images.metmuseum.org/b.jpg"},
+                {"id": "cma-3", "indexPreviewUrl": "https://openaccess-cdn.clevelandart.org/c.jpg"}]}
+            calls = []
+            def fetch(url):
+                calls.append(url)
+                if "metmuseum" in url:
+                    raise urllib.error.HTTPError(url, 429, "Slow down", {}, None)
+                return b"blue"
+            result, report = backfill(payload, [root], root / "state.json", fetch_missing=True,
+                                      fetcher=fetch, decoder=lambda data, legacy: BLUE)
+            self.assertEqual(len(calls), 2)
+            self.assertEqual(set(result["records"]), {"cma-3"})
+            self.assertEqual(report["pendingCount"], 2)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -86,7 +86,7 @@ def backfill(payload, cache_directories, state_path, padding=None, fetch_missing
     saved = state.get("records", {}) if state.get("signature") == signature else {}
     results, next_state, pending, failures = {}, dict(saved), [], []
     started, last_fetch = time.monotonic(), -float("inf")
-    requests, reused, stop_fetching = 0, 0, False
+    requests, reused, blocked_hosts = 0, 0, set()
 
     def decode(data, legacy):
         if decoder:
@@ -114,6 +114,7 @@ def backfill(payload, cache_directories, state_path, padding=None, fetch_missing
         if time.monotonic() - started >= max_seconds:
             pending.extend(str(row["id"]) for row in payload["records"][position:])
             break
+        fetch_host = None
         try:
             data, legacy = None, False
             if cached:
@@ -129,7 +130,7 @@ def backfill(payload, cache_directories, state_path, padding=None, fetch_missing
                         raise ValueError("Cached preview checksum mismatch")
                 legacy = cached.suffix.lower() == ".png" and padding is not None
             if data is None:
-                if not fetch_missing or stop_fetching or requests >= fetch_limit or entry.get("retryAt", 0) > time.time():
+                if not fetch_missing or requests >= fetch_limit or entry.get("retryAt", 0) > time.time():
                     pending.append(id)
                     if entry.get("sourceKey") == key:
                         next_state[id] = entry
@@ -137,6 +138,12 @@ def backfill(payload, cache_directories, state_path, padding=None, fetch_missing
                 url = art.get("indexPreviewUrl")
                 if not url:
                     raise ValueError("No preview URL; original image is not fetched implicitly")
+                fetch_host = urllib.parse.urlsplit(url).hostname
+                if fetch_host in blocked_hosts:
+                    pending.append(id)
+                    if entry.get("sourceKey") == key:
+                        next_state[id] = entry
+                    continue
                 wait = delay - (time.monotonic() - last_fetch)
                 if wait > 0:
                     time.sleep(wait)
@@ -152,8 +159,9 @@ def backfill(payload, cache_directories, state_path, padding=None, fetch_missing
             pending.append(id)
             failures.append({"id": id, "error": str(error)[:240]})
             next_state[id] = {"sourceKey": key, "retryAt": int(time.time()) + 86400}
-            if isinstance(error, urllib.error.HTTPError) and error.code in (403, 429):
-                stop_fetching = True
+            if fetch_host and isinstance(error, urllib.error.HTTPError) and error.code in (403, 429):
+                # Respect this provider's refusal without blocking unrelated museums.
+                blocked_hosts.add(fetch_host)
         if (position + 1) % 100 == 0:
             atomic(state_path, {"signature": signature, "records": next_state})
     atomic(state_path, {"signature": signature, "records": next_state})
