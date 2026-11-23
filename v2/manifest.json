@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-23T21:02:16.606842Z",
+  "generatedAt": "2026-11-23T21:58:25.004499Z",
   "indexedCount": 11304,
-  "file": "art-index-17b5da33ebb1fba2.json",
-  "sha256": "17b5da33ebb1fba2b395434e5b5b4530f168789dd9908feedfbcb1d692ad1c1c",
-  "bytes": 26602855,
-  "contentSha256": "9eb26f9767d3d545667c3dc33421fbe71814f1f420fd5d3867c4b5d0804c8bf9",
+  "file": "art-index-4080f0282e8e6e92.json",
+  "sha256": "4080f0282e8e6e928a2ffac0da51e7e397a676d39e498021df8b15432a8271a3",
+  "bytes": 27328656,
+  "contentSha256": "eb8b23d9067840e1b7fa48002ad8dc220df770682838c7c57d8cc26b1897d3ab",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14425,
@@ -40,7 +40,7 @@
       "orientation": 3432,
       "brightness": 11304,
       "visual": 11304,
-      "color": 8283
+      "color": 11268
     },
     "bySource": {
       "chicago": {
@@ -57,7 +57,7 @@
         "orientation": 17,
         "brightness": 17,
         "visual": 17,
-        "color": 0
+        "color": 10
       },
       "cleveland": {
         "catalogue": 3388,
@@ -72,7 +72,7 @@
         "brightness": 3388,
         "visual": 3388,
         "genre": 709,
-        "color": 413
+        "color": 3388
       },
       "masterpieces": {
         "catalogue": 26,
@@ -106,12 +106,12 @@
         "color": 7844
       }
     },
-    "colorIndexed": 8283
+    "colorIndexed": 11268
   },
   "gzip": {
-    "file": "art-index-7afbcae11a84b83a.json.gz",
-    "sha256": "7afbcae11a84b83a1d0fbcfecdd98876974f74e68fb64bba18dbc23aeb94a5cb",
-    "bytes": 11333104,
-    "uncompressedBytes": 26602855
+    "file": "art-index-a68e7586ca631058.json.gz",
+    "sha256": "a68e7586ca631058f587d9adbbef75acfc3f776183f9fa1b96208570865ec4f3",
+    "bytes": 11560058,
+    "uncompressedBytes": 27328656
   }
 }
