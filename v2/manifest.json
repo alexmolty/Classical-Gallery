@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-23T21:58:25.004499Z",
+  "generatedAt": "2026-11-23T22:37:55Z",
   "indexedCount": 11304,
-  "file": "art-index-4080f0282e8e6e92.json",
-  "sha256": "4080f0282e8e6e928a2ffac0da51e7e397a676d39e498021df8b15432a8271a3",
-  "bytes": 27328656,
-  "contentSha256": "eb8b23d9067840e1b7fa48002ad8dc220df770682838c7c57d8cc26b1897d3ab",
+  "file": "art-index-b507cb5a843a3037.json",
+  "sha256": "b507cb5a843a303792f2d06a2976bdcfac6eef6a105215a18518954a26d9c4e8",
+  "bytes": 24583290,
+  "contentSha256": "0055871f8f2c45b2e9367995072654d9b361b995e2c36efc56365cb0dd006006",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14425,
@@ -17,11 +17,11 @@
     "pendingImages": [
       {
         "id": "met-42560",
-        "error": "cannot identify image file <_io.BytesIO object at 0x717eaf5d6110>; cannot identify image file <_io.BytesIO object at 0x717e87925210>"
+        "error": "cannot identify image file <_io.BytesIO object at 0x740428c562a0>; cannot identify image file <_io.BytesIO object at 0x740428799170>"
       },
       {
         "id": "met-45663",
-        "error": "cannot identify image file <_io.BytesIO object at 0x717e903a5120>; cannot identify image file <_io.BytesIO object at 0x717eaf5d6110>"
+        "error": "cannot identify image file <_io.BytesIO object at 0x7404479d6070>; cannot identify image file <_io.BytesIO object at 0x740428c55030>"
       }
     ],
     "brightnessIndexed": 11304,
@@ -39,8 +39,7 @@
       "source": 11306,
       "orientation": 3432,
       "brightness": 11304,
-      "visual": 11304,
-      "color": 11268
+      "visual": 11304
     },
     "bySource": {
       "chicago": {
@@ -56,8 +55,7 @@
         "source": 17,
         "orientation": 17,
         "brightness": 17,
-        "visual": 17,
-        "color": 10
+        "visual": 17
       },
       "cleveland": {
         "catalogue": 3388,
@@ -71,8 +69,7 @@
         "orientation": 3388,
         "brightness": 3388,
         "visual": 3388,
-        "genre": 709,
-        "color": 3388
+        "genre": 709
       },
       "masterpieces": {
         "catalogue": 26,
@@ -86,8 +83,7 @@
         "source": 26,
         "orientation": 26,
         "brightness": 26,
-        "visual": 26,
-        "color": 26
+        "visual": 26
       },
       "met": {
         "catalogue": 7875,
@@ -102,16 +98,14 @@
         "visual": 7873,
         "style": 2345,
         "genre": 4680,
-        "orientation": 1,
-        "color": 7844
+        "orientation": 1
       }
-    },
-    "colorIndexed": 11268
+    }
   },
   "gzip": {
-    "file": "art-index-a68e7586ca631058.json.gz",
-    "sha256": "a68e7586ca631058f587d9adbbef75acfc3f776183f9fa1b96208570865ec4f3",
-    "bytes": 11560058,
-    "uncompressedBytes": 27328656
+    "file": "art-index-cb7b15103462ce09.json.gz",
+    "sha256": "cb7b15103462ce09ecfe3730d1da679b64bba7e3cf618dcc9c46215e2e09c31a",
+    "bytes": 10668120,
+    "uncompressedBytes": 24583290
   }
 }

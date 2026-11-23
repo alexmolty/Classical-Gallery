@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-23T21:58:25.004499Z",
+  "generatedAt": "2026-11-23T22:37:55Z",
   "indexedCount": 18713,
-  "file": "art-index-5cfa479077c93d64.json",
-  "sha256": "5cfa479077c93d647dcce9f5fd44ff5dfc88b5c4bb83710fe45304e27a43a1a5",
-  "bytes": 45149163,
-  "contentSha256": "2bc4776bf5b4a7bf638c864a01cc18c331697671c45fb0838ec0908eec7e1dfb",
+  "file": "art-index-4c1253b79c529b07.json",
+  "sha256": "4c1253b79c529b070a4892f7606f0fab59f2df0af6b42f1225e249b00ad6656f",
+  "bytes": 40577833,
+  "contentSha256": "6cd150b501657baf62ef0fd922c1d705581bc74b26d8850a2f2b02ebfbb80fa7",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14425,
@@ -17,11 +17,11 @@
     "pendingImages": [
       {
         "id": "met-42560",
-        "error": "cannot identify image file <_io.BytesIO object at 0x717eaf5d6110>; cannot identify image file <_io.BytesIO object at 0x717e87925210>"
+        "error": "cannot identify image file <_io.BytesIO object at 0x740428c562a0>; cannot identify image file <_io.BytesIO object at 0x740428799170>"
       },
       {
         "id": "met-45663",
-        "error": "cannot identify image file <_io.BytesIO object at 0x717e903a5120>; cannot identify image file <_io.BytesIO object at 0x717eaf5d6110>"
+        "error": "cannot identify image file <_io.BytesIO object at 0x7404479d6070>; cannot identify image file <_io.BytesIO object at 0x740428c55030>"
       }
     ],
     "brightnessIndexed": 18713,
@@ -39,8 +39,7 @@
       "source": 18715,
       "orientation": 10841,
       "brightness": 18713,
-      "visual": 18713,
-      "color": 18677
+      "visual": 18713
     },
     "bySource": {
       "ateneum": {
@@ -56,8 +55,7 @@
         "brightness": 1419,
         "visual": 1419,
         "style": 753,
-        "genre": 945,
-        "color": 1419
+        "genre": 945
       },
       "chicago": {
         "catalogue": 17,
@@ -72,8 +70,7 @@
         "source": 17,
         "orientation": 17,
         "brightness": 17,
-        "visual": 17,
-        "color": 10
+        "visual": 17
       },
       "cleveland": {
         "catalogue": 3388,
@@ -87,8 +84,7 @@
         "orientation": 3388,
         "brightness": 3388,
         "visual": 3388,
-        "genre": 709,
-        "color": 3388
+        "genre": 709
       },
       "getty": {
         "catalogue": 265,
@@ -103,8 +99,7 @@
         "orientation": 265,
         "brightness": 265,
         "visual": 265,
-        "genre": 138,
-        "color": 265
+        "genre": 138
       },
       "masterpieces": {
         "catalogue": 26,
@@ -118,8 +113,7 @@
         "source": 26,
         "orientation": 26,
         "brightness": 26,
-        "visual": 26,
-        "color": 26
+        "visual": 26
       },
       "met": {
         "catalogue": 7875,
@@ -134,8 +128,7 @@
         "visual": 7873,
         "style": 2345,
         "genre": 4680,
-        "orientation": 1,
-        "color": 7844
+        "orientation": 1
       },
       "nga": {
         "catalogue": 2888,
@@ -150,8 +143,7 @@
         "brightness": 2888,
         "visual": 2888,
         "style": 2434,
-        "genre": 1095,
-        "color": 2888
+        "genre": 1095
       },
       "rijks": {
         "catalogue": 293,
@@ -165,8 +157,7 @@
         "source": 293,
         "orientation": 293,
         "brightness": 293,
-        "visual": 293,
-        "color": 293
+        "visual": 293
       },
       "sinebrychoff": {
         "catalogue": 524,
@@ -181,8 +172,7 @@
         "source": 524,
         "orientation": 524,
         "brightness": 524,
-        "visual": 524,
-        "color": 524
+        "visual": 524
       },
       "smk": {
         "catalogue": 1887,
@@ -196,8 +186,7 @@
         "orientation": 1887,
         "brightness": 1887,
         "visual": 1887,
-        "genre": 15,
-        "color": 1887
+        "genre": 15
       },
       "stockholm": {
         "catalogue": 133,
@@ -211,8 +200,7 @@
         "period": 64,
         "year": 64,
         "genre": 26,
-        "style": 13,
-        "color": 133
+        "style": 13
       }
     },
     "workStylesIndexed": 318,
@@ -223,13 +211,12 @@
     "styleResolvedArtistIds": 2045,
     "stylePendingArtistProfiles": 0,
     "styleArtistLookupFailures": 0,
-    "styleLabelsPendingReview": 41,
-    "colorIndexed": 18677
+    "styleLabelsPendingReview": 41
   },
   "gzip": {
-    "file": "art-index-9cac869d19687d41.json.gz",
-    "sha256": "9cac869d19687d412d0962545d72a0631b99a8c73021e64b8912dd4cf008daf2",
-    "bytes": 19384674,
-    "uncompressedBytes": 45149163
+    "file": "art-index-8ba3b432ea11c61b.json.gz",
+    "sha256": "8ba3b432ea11c61b4aee795bd57dacc7fc351f85aadabf887168aa05dff43f71",
+    "bytes": 17868997,
+    "uncompressedBytes": 40577833
   }
 }
