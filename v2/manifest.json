@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-22T18:26:37Z",
+  "generatedAt": "2026-11-23T21:02:16.606842Z",
   "indexedCount": 11304,
-  "file": "art-index-34813d7d26fcfcee.json",
-  "sha256": "34813d7d26fcfceedb41a4b8e407e476b8481aa77786dd950eddd2c0bf79ac42",
-  "bytes": 24583276,
-  "contentSha256": "889c8dc2ea02a50288835f741906e05ffb4e4832e1fe283afe9b67d345807217",
+  "file": "art-index-17b5da33ebb1fba2.json",
+  "sha256": "17b5da33ebb1fba2b395434e5b5b4530f168789dd9908feedfbcb1d692ad1c1c",
+  "bytes": 26602855,
+  "contentSha256": "9eb26f9767d3d545667c3dc33421fbe71814f1f420fd5d3867c4b5d0804c8bf9",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14425,
@@ -39,7 +39,8 @@
       "source": 11306,
       "orientation": 3432,
       "brightness": 11304,
-      "visual": 11304
+      "visual": 11304,
+      "color": 8283
     },
     "bySource": {
       "chicago": {
@@ -55,7 +56,8 @@
         "source": 17,
         "orientation": 17,
         "brightness": 17,
-        "visual": 17
+        "visual": 17,
+        "color": 0
       },
       "cleveland": {
         "catalogue": 3388,
@@ -69,7 +71,8 @@
         "orientation": 3388,
         "brightness": 3388,
         "visual": 3388,
-        "genre": 709
+        "genre": 709,
+        "color": 413
       },
       "masterpieces": {
         "catalogue": 26,
@@ -83,7 +86,8 @@
         "source": 26,
         "orientation": 26,
         "brightness": 26,
-        "visual": 26
+        "visual": 26,
+        "color": 26
       },
       "met": {
         "catalogue": 7875,
@@ -98,14 +102,16 @@
         "visual": 7873,
         "style": 2345,
         "genre": 4680,
-        "orientation": 1
+        "orientation": 1,
+        "color": 7844
       }
-    }
+    },
+    "colorIndexed": 8283
   },
   "gzip": {
-    "file": "art-index-3c8681b1fe559af2.json.gz",
-    "sha256": "3c8681b1fe559af28532437056aabece16de7fb8494fd87130d58f112a616331",
-    "bytes": 10667994,
-    "uncompressedBytes": 24583276
+    "file": "art-index-7afbcae11a84b83a.json.gz",
+    "sha256": "7afbcae11a84b83a1d0fbcfecdd98876974f74e68fb64bba18dbc23aeb94a5cb",
+    "bytes": 11333104,
+    "uncompressedBytes": 26602855
   }
 }

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-22T18:26:37Z",
+  "generatedAt": "2026-11-23T21:02:16.606842Z",
   "indexedCount": 18713,
-  "file": "art-index-e7a08cbcbbb293a9.json",
-  "sha256": "e7a08cbcbbb293a9a9944c8038fd55a357baecd3d36fa87a62251d7b0c95b79f",
-  "bytes": 40577819,
-  "contentSha256": "42b5b51a0e70dad14a72af6d5b49448a0410dc5146ecb8eb681569556f3e1a09",
+  "file": "art-index-cc4ebc299e0c9c92.json",
+  "sha256": "cc4ebc299e0c9c928cb3ad145f6a1252aed8abd36c72af93a733085db77fca5e",
+  "bytes": 44423364,
+  "contentSha256": "0f101eb7d5583b558a7392185685e863ae27726acfa7d79275397ab98f1f0927",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14425,
@@ -39,7 +39,8 @@
       "source": 18715,
       "orientation": 10841,
       "brightness": 18713,
-      "visual": 18713
+      "visual": 18713,
+      "color": 15692
     },
     "bySource": {
       "ateneum": {
@@ -55,7 +56,8 @@
         "brightness": 1419,
         "visual": 1419,
         "style": 753,
-        "genre": 945
+        "genre": 945,
+        "color": 1419
       },
       "chicago": {
         "catalogue": 17,
@@ -70,7 +72,8 @@
         "source": 17,
         "orientation": 17,
         "brightness": 17,
-        "visual": 17
+        "visual": 17,
+        "color": 0
       },
       "cleveland": {
         "catalogue": 3388,
@@ -84,7 +87,8 @@
         "orientation": 3388,
         "brightness": 3388,
         "visual": 3388,
-        "genre": 709
+        "genre": 709,
+        "color": 413
       },
       "getty": {
         "catalogue": 265,
@@ -99,7 +103,8 @@
         "orientation": 265,
         "brightness": 265,
         "visual": 265,
-        "genre": 138
+        "genre": 138,
+        "color": 265
       },
       "masterpieces": {
         "catalogue": 26,
@@ -113,7 +118,8 @@
         "source": 26,
         "orientation": 26,
         "brightness": 26,
-        "visual": 26
+        "visual": 26,
+        "color": 26
       },
       "met": {
         "catalogue": 7875,
@@ -128,7 +134,8 @@
         "visual": 7873,
         "style": 2345,
         "genre": 4680,
-        "orientation": 1
+        "orientation": 1,
+        "color": 7844
       },
       "nga": {
         "catalogue": 2888,
@@ -143,7 +150,8 @@
         "brightness": 2888,
         "visual": 2888,
         "style": 2434,
-        "genre": 1095
+        "genre": 1095,
+        "color": 2888
       },
       "rijks": {
         "catalogue": 293,
@@ -157,7 +165,8 @@
         "source": 293,
         "orientation": 293,
         "brightness": 293,
-        "visual": 293
+        "visual": 293,
+        "color": 293
       },
       "sinebrychoff": {
         "catalogue": 524,
@@ -172,7 +181,8 @@
         "source": 524,
         "orientation": 524,
         "brightness": 524,
-        "visual": 524
+        "visual": 524,
+        "color": 524
       },
       "smk": {
         "catalogue": 1887,
@@ -186,7 +196,8 @@
         "orientation": 1887,
         "brightness": 1887,
         "visual": 1887,
-        "genre": 15
+        "genre": 15,
+        "color": 1887
       },
       "stockholm": {
         "catalogue": 133,
@@ -200,7 +211,8 @@
         "period": 64,
         "year": 64,
         "genre": 26,
-        "style": 13
+        "style": 13,
+        "color": 133
       }
     },
     "workStylesIndexed": 318,
@@ -211,12 +223,13 @@
     "styleResolvedArtistIds": 2045,
     "stylePendingArtistProfiles": 0,
     "styleArtistLookupFailures": 0,
-    "styleLabelsPendingReview": 41
+    "styleLabelsPendingReview": 41,
+    "colorIndexed": 15692
   },
   "gzip": {
-    "file": "art-index-b5503c3534778ea7.json.gz",
-    "sha256": "b5503c3534778ea7b3efd03afe3662f5fcd7b855591e981af76fe4da7eb11f6c",
-    "bytes": 17868830,
-    "uncompressedBytes": 40577819
+    "file": "art-index-b5f3e5ed74208875.json.gz",
+    "sha256": "b5f3e5ed742088752c8b1ecfad64b34549201bbb16770e48dba3e6a69b0ab0eb",
+    "bytes": 19158010,
+    "uncompressedBytes": 44423364
   }
 }
