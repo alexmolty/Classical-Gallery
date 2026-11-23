@@ -16,6 +16,18 @@ on:
         description: Verify independent CPU inference from cached catalogue
         type: boolean
         default: false
+      color_only:
+        description: Backfill color statistics from cached pixels without AI inference
+        type: boolean
+        default: false
+      fetch_color_previews:
+        description: Allow serial small-preview requests for missing color pixels
+        type: boolean
+        default: false
+      color_fetch_limit:
+        description: Maximum missing previews in a color-only run
+        type: number
+        default: 256
   schedule:
     - cron: '43 10 * * *'
 permissions:
@@ -41,13 +53,22 @@ jobs:
           path: tools/art-index/cache
           key: museum-visual-index-v2-${{ github.run_id }}
           restore-keys: museum-visual-index-v2-
-      - run: python -m pip install -r tools/art-index/requirements.txt
+      - if: ${{ !inputs.color_only }}
+        run: python -m pip install -r tools/art-index/requirements.txt
+      - if: ${{ inputs.color_only }}
+        run: python -m pip install Pillow==12.3.0
       - uses: actions/checkout@v7
         with:
           ref: art-index
           path: index-publication
       - name: Collect new metadata, analyze missing images and build verified data
+        if: ${{ !inputs.color_only }}
         run: python tools/art-index/run.py --publish-dir index-publication ${{ inputs.verify_only && '--skip-collection --verify-portability' || '' }}
+      - name: Backfill cached image colors without AI inference
+        if: ${{ inputs.color_only }}
+        env:
+          COLOR_FETCH_LIMIT: ${{ inputs.color_fetch_limit || 256 }}
+        run: python tools/art-index/scripts/publish_colors.py --publish-dir index-publication --fetch-limit "$COLOR_FETCH_LIMIT" ${{ inputs.fetch_color_previews && '--fetch-missing' || '' }}
       - name: Publish index data
         working-directory: index-publication
         run: |

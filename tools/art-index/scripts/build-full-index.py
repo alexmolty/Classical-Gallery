@@ -8,6 +8,7 @@ import numpy as np
 import onnxruntime as ort
 from PIL import Image,ImageOps
 from tone_brightness import measure_brightness,measure_legacy_preview
+from color_features import analyze_image,analyze_legacy_preview
 from desktop_publication import legacy_record
 Image.MAX_IMAGE_PIXELS=48_000_000
 PREVIEWS=HERE/'previews';PREVIEWS.mkdir(exist_ok=True);FEATURES=HERE/'full-features';FEATURES.mkdir(exist_ok=True)
@@ -32,13 +33,15 @@ for i,record in enumerate(prior['provenance']):
  if not target.exists():np.savez_compressed(target,clip=old_clip[i],dino=old_dino[i],signature=signature,previewSha256=record['previewSha256'])
 
 def cached_brightness(target, meta):
- if 'toneBrightness' in meta or not target.exists():return
+ if ('toneBrightness' in meta and meta.get('colorFeatures',{}).get('version')==1) or not target.exists():return
  try:
   data=target.read_bytes()
   if hashlib.sha256(data).hexdigest()!=meta['previewSha256']:return
   with Image.open(io.BytesIO(data)) as image:
    value=measure_legacy_preview(image,padding)
+   colors=analyze_legacy_preview(image,padding)
   if value is not None:meta['toneBrightness']=value
+  if colors is not None:meta['colorFeatures']=colors
  except (OSError,ValueError):pass
 
 def preview(art):
@@ -51,9 +54,10 @@ def preview(art):
    if str(cached['signature'])==signature and 'sourceKey' in cached and str(cached['sourceKey'])==source_key:
     cached_meta={'previewSha256':str(cached['previewSha256']),'sourceKey':source_key}
     if 'toneBrightness' in cached:cached_meta['toneBrightness']=int(cached['toneBrightness'].item())
+    if 'colorFeatures' in cached:cached_meta['colorFeatures']=json.loads(str(cached['colorFeatures']))
     if 'brightnessRetryAt' in cached:cached_meta['brightnessRetryAt']=int(cached['brightnessRetryAt'].item())
     cached_brightness(target,cached_meta)
-    if 'toneBrightness' in cached_meta or time.time()>=deadline or cached_meta.get('brightnessRetryAt',0)>time.time() or os.environ.get('ART_INDEX_OFFLINE')=='1' or not brightness_backfill.acquire(blocking=False):
+    if ('toneBrightness' in cached_meta and cached_meta.get('colorFeatures',{}).get('version')==1) or time.time()>=deadline or cached_meta.get('brightnessRetryAt',0)>time.time() or os.environ.get('ART_INDEX_OFFLINE')=='1' or not brightness_backfill.acquire(blocking=False):
      return art,cached_meta
    stale_feature='sourceKey' in cached and str(cached['sourceKey'])!=source_key
  if time.time()>=deadline:return art,cached_meta or {'error':'Image time budget reached; deferred until a later build'}
@@ -75,15 +79,18 @@ def preview(art):
    with Image.open(io.BytesIO(data)) as original:
     original.load();oriented=ImageOps.exif_transpose(original)
     value=measure_brightness(oriented)
+    colors=analyze_image(oriented)
     if cached_meta is not None:
      if value is not None:cached_meta['toneBrightness']=value
      else:cached_meta['brightnessRetryAt']=int(time.time())+3*86400
+     if colors is not None:cached_meta['colorFeatures']=colors
      return art,cached_meta
     image=oriented.convert('RGB');image.thumbnail((224,224),Image.Resampling.LANCZOS)
     canvas=Image.new('RGB',(224,224),padding)
     canvas.paste(image,((224-image.width)//2,(224-image.height)//2));canvas.save(target)
    meta={'id':art['id'],'source':source,'sourceKey':source_key,'sourceSha256':hashlib.sha256(data).hexdigest(),'previewSha256':hashlib.sha256(target.read_bytes()).hexdigest(),'pageUrl':art['pageUrl']}
    if value is not None:meta['toneBrightness']=value
+   if colors is not None:meta['colorFeatures']=colors
    meta_path.write_text(json.dumps(meta),encoding='utf8');return art,meta
   except Exception as error:
    errors.append(str(error))
@@ -124,8 +131,9 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     if dv is None:dv=feature(pixels,dino,dino_config,'dino')
    brightness={'toneBrightness':meta['toneBrightness']} if 'toneBrightness' in meta else {}
    brightness_cache=brightness or {key:meta[key] for key in ('brightnessRetryAt',) if key in meta}
+   if meta.get('colorFeatures',{}).get('version')==1:brightness_cache['colorFeatures']=json.dumps(meta['colorFeatures'],separators=(',',':'))
    np.savez_compressed(feature_path,clip=cv,dino=dv,signature=signature,previewSha256=meta['previewSha256'],sourceKey=meta['sourceKey'],**brightness_cache)
-   indexed.append({**art,'metadata':{**art['metadata'],**brightness}});clip_vectors.append(cv);dino_vectors.append(dv)
+   indexed.append({**art,'metadata':{**art['metadata'],**brightness,**({'colorFeatures':meta['colorFeatures']} if 'colorFeatures' in meta else {})}});clip_vectors.append(cv);dino_vectors.append(dv)
   if (n+1)%100==0:print(json.dumps({'stage':'full image inference','processed':n+1,'total':len(catalog),'indexed':len(indexed),'failed':len(failed)}),flush=True)
 order=np.argsort([a['id'] for a in indexed]);indexed=[indexed[i] for i in order]
 cv=np.stack(clip_vectors)[order];dv=np.stack(dino_vectors)[order]

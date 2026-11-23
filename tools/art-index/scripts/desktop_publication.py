@@ -33,7 +33,7 @@ def coverage_for(inventory, records, failures, collection):
     by_source = collections.defaultdict(collections.Counter)
     missing = [row for row in failures if row['id'] in known]
     criteria = ('title', 'artist', 'origin', 'style', 'genre', 'period', 'subject', 'year',
-                'source', 'orientation', 'brightness', 'visual')
+                'source', 'orientation', 'brightness', 'color', 'visual')
     for art in inventory:
         source = art['metadata'].get('sourceMuseum') or 'unknown'
         group = by_source[source]
@@ -43,6 +43,7 @@ def coverage_for(inventory, records, failures, collection):
         if indexed_art:
             flags['visual'] = True
             flags['brightness'] = 'toneBrightness' in indexed_art
+            flags['color'] = indexed_art.get('colorFeatures', {}).get('version') == 1
             flags['style'] = flags.get('style') or bool(indexed_art.get('workMovements') or indexed_art.get('artistMovements'))
         for field in criteria:
             if flags.get(field):
@@ -56,7 +57,7 @@ def coverage_for(inventory, records, failures, collection):
         'imageCandidates': len(inventory), 'indexedImages': len(indexed),
         'pendingImageCount': len(missing),
         'pendingImages': [{'id': row['id'], 'error': row['error'][:200]} for row in missing[:16]],
-        'brightnessIndexed': counts['brightness'], 'styleTaggedWorks': counts['style'],
+        'brightnessIndexed': counts['brightness'], 'colorIndexed': counts['color'], 'styleTaggedWorks': counts['style'],
         'styleUntaggedWorks': len(inventory) - counts['style'],
         'byCriterion': {field: counts[field] for field in criteria},
         'bySource': {source: dict(group) for source, group in sorted(by_source.items())}

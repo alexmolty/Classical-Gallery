@@ -5,7 +5,7 @@ CONTEXT=ROOT/'cache';WORK=CONTEXT/'work/ai-index';SCHEMA=CONTEXT/'outputs/chicag
 parser=argparse.ArgumentParser();parser.add_argument('--offline',action='store_true');parser.add_argument('--skip-collection',action='store_true');parser.add_argument('--verify-portability',action='store_true');parser.add_argument('--publish-dir',type=pathlib.Path,required=True);args=parser.parse_args()
 WORK.mkdir(parents=True,exist_ok=True);SCHEMA.mkdir(parents=True,exist_ok=True)
 for name in ['core.js','museum-catalog.js']:shutil.copyfile(ROOT/'schema'/name,SCHEMA/name)
-for name in ['collect-full-catalog.py','normalize-full-catalog.cjs','build-full-index.py','resolve-missing-previews.py','build-vector-index.py','tone_brightness.py','desktop_publication.py','desktop-catalog.json.gz']:shutil.copyfile(ROOT/'scripts'/name,WORK/name)
+for name in ['collect-full-catalog.py','normalize-full-catalog.cjs','build-full-index.py','resolve-missing-previews.py','build-vector-index.py','tone_brightness.py','color_features.py','desktop_publication.py','desktop-catalog.json.gz']:shutil.copyfile(ROOT/'scripts'/name,WORK/name)
 for name in ['gallery-records.json','catalog.json','preview-overrides.json']:
  if not (WORK/name).exists():shutil.copyfile(ROOT/'bootstrap'/name,WORK/name)
 shutil.copyfile(ROOT/'bootstrap/masterpieces.json',WORK/'masterpieces.json')
@@ -110,7 +110,7 @@ legacy_vector_records=[art for art in vector_payload['records'] if legacy_record
 legacy_coverage=coverage_for(legacy_inventory,legacy_vector_records,failures,collection)
 result=publish_index(destination/'v2',select_legacy_vectors(vector_payload,legacy_coverage))
 print('VECTOR_PUBLICATION '+json.dumps(result),flush=True)
-legacy_records=[{key:value for key,value in art.items() if key!='toneBrightness'}
+legacy_records=[{key:value for key,value in art.items() if key not in ('toneBrightness','colorFeatures')}
  for art in payload['records'] if legacy_record(art) and not str(art['id']).startswith('masterpiece-')]
 legacy_ids={str(art['id']) for art in legacy_records}
 legacy_payload={**payload,'indexedCount':len(legacy_records),'records':legacy_records,
