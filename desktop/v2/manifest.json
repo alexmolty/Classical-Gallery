@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-23T22:37:55Z",
+  "generatedAt": "2026-11-24T21:16:21Z",
   "indexedCount": 18713,
-  "file": "art-index-4c1253b79c529b07.json",
-  "sha256": "4c1253b79c529b070a4892f7606f0fab59f2df0af6b42f1225e249b00ad6656f",
-  "bytes": 40577833,
-  "contentSha256": "6cd150b501657baf62ef0fd922c1d705581bc74b26d8850a2f2b02ebfbb80fa7",
+  "file": "art-index-416e31d5354ded3b.json",
+  "sha256": "416e31d5354ded3b0aecb966cbf32945677b47096807e053aeddc2d1ef71bd93",
+  "bytes": 40577673,
+  "contentSha256": "4f2801519a06d1b81bc395ca7d75bb72675ac091bb5316d036bd8deb5e53cfc4",
   "coverage": {
     "collectionResult": "INCOMPLETE",
     "enumeratedMetCandidates": 14425,
@@ -17,11 +17,11 @@
     "pendingImages": [
       {
         "id": "met-42560",
-        "error": "cannot identify image file <_io.BytesIO object at 0x740428c562a0>; cannot identify image file <_io.BytesIO object at 0x740428799170>"
+        "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       },
       {
         "id": "met-45663",
-        "error": "cannot identify image file <_io.BytesIO object at 0x7404479d6070>; cannot identify image file <_io.BytesIO object at 0x740428c55030>"
+        "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       }
     ],
     "brightnessIndexed": 18713,
@@ -214,9 +214,9 @@
     "styleLabelsPendingReview": 41
   },
   "gzip": {
-    "file": "art-index-8ba3b432ea11c61b.json.gz",
-    "sha256": "8ba3b432ea11c61b4aee795bd57dacc7fc351f85aadabf887168aa05dff43f71",
-    "bytes": 17868997,
-    "uncompressedBytes": 40577833
+    "file": "art-index-9530a60ac8e67a25.json.gz",
+    "sha256": "9530a60ac8e67a25e358fd6d8a6b13dc6a0930a2b60f188bbc44f8eae91937b2",
+    "bytes": 17868862,
+    "uncompressedBytes": 40577673
   }
 }
