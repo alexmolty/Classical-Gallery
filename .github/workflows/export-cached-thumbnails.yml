@@ -1,0 +1,36 @@
+name: Export cached artwork thumbnails
+on:
+  workflow_dispatch:
+  push:
+    branches: ['codex/thumbnail-pack-cache']
+    paths: ['.github/workflows/export-cached-thumbnails.yml', 'tools/thumbnail-pack/export-cache.cjs']
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/cache/restore@v6
+        with:
+          path: tools/art-index/cache
+          key: thumbnail-export-${{ github.run_id }}
+          restore-keys: museum-visual-index-v2-
+          fail-on-cache-miss: true
+      - name: Install image encoder only
+        run: npm install --prefix "$RUNNER_TEMP/thumbnail-tools" --no-audit --no-fund sharp@0.34.5
+      - name: Export existing previews without museum requests or AI
+        env:
+          THUMBNAIL_SHARP_MODULE: ${{ runner.temp }}/thumbnail-tools/node_modules/sharp
+        run: node tools/thumbnail-pack/export-cache.cjs --work tools/art-index/cache/work/ai-index --output thumbnail-export
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cached-artwork-thumbnails
+          path: thumbnail-export/
+          retention-days: 1
+          compression-level: 0
+          if-no-files-found: error
