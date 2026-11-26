@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-25T20:35:17Z",
-  "indexedCount": 18713,
-  "file": "art-index-db119d8d8f285ca3.json",
-  "sha256": "db119d8d8f285ca3b3abd9d86a8c53458fe9413106ae0312084bb27f662e697a",
-  "bytes": 40577665,
-  "contentSha256": "fa745eff6b7f0f6c98d7cae9c75efc0b762bcf351af855f111c67e24d7e6339f",
+  "generatedAt": "2026-11-26T20:17:45Z",
+  "indexedCount": 18712,
+  "file": "art-index-ca7f874802987103.json",
+  "sha256": "ca7f8748029871039c31074a471713470876cdcca5a9fcae12dfd958ffbbc98c",
+  "bytes": 40575511,
+  "contentSha256": "f24c8bab42e9ffb23a538e31057ed2b684c9d337874230ba7c961f4f781d4cdd",
   "coverage": {
     "collectionResult": "INCOMPLETE",
-    "enumeratedMetCandidates": 14426,
-    "metPendingMetadata": 276,
+    "enumeratedMetCandidates": 14425,
+    "metPendingMetadata": 275,
     "clevelandError": "",
     "imageCandidates": 18715,
-    "indexedImages": 18713,
-    "pendingImageCount": 2,
+    "indexedImages": 18712,
+    "pendingImageCount": 3,
     "pendingImages": [
       {
         "id": "met-42560",
@@ -22,9 +22,13 @@
       {
         "id": "met-45663",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
+      },
+      {
+        "id": "cma-153406",
+        "error": "The read operation timed out; The read operation timed out"
       }
     ],
-    "brightnessIndexed": 18713,
+    "brightnessIndexed": 18712,
     "styleTaggedWorks": 7165,
     "styleUntaggedWorks": 11550,
     "byCriterion": {
@@ -38,8 +42,8 @@
       "year": 18361,
       "source": 18715,
       "orientation": 10841,
-      "brightness": 18713,
-      "visual": 18713
+      "brightness": 18712,
+      "visual": 18712
     },
     "bySource": {
       "ateneum": {
@@ -82,8 +86,8 @@
         "year": 3388,
         "source": 3388,
         "orientation": 3388,
-        "brightness": 3388,
-        "visual": 3388,
+        "brightness": 3387,
+        "visual": 3387,
         "genre": 709
       },
       "getty": {
@@ -205,7 +209,7 @@
     },
     "workStylesIndexed": 318,
     "artistStylesIndexed": 2092,
-    "documentedStylesIndexed": 4385,
+    "documentedStylesIndexed": 4384,
     "wikiArtWorkStylesIndexed": 254,
     "wikiArtArtistStylesIndexed": 116,
     "styleResolvedArtistIds": 2045,
@@ -214,9 +218,9 @@
     "styleLabelsPendingReview": 41
   },
   "gzip": {
-    "file": "art-index-d17e838dc1b9640c.json.gz",
-    "sha256": "d17e838dc1b9640c3093d9d909e40808f95e4adda511921d6dc8b88a34abb9ef",
-    "bytes": 17868868,
-    "uncompressedBytes": 40577665
+    "file": "art-index-3d36659af9bcd62b.json.gz",
+    "sha256": "3d36659af9bcd62b7aa698772854a733eb8f3723c7e90943d8daa1b4707b17a6",
+    "bytes": 17868141,
+    "uncompressedBytes": 40575511
   }
 }

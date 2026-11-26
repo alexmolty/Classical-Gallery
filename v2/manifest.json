@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-25T20:35:17Z",
-  "indexedCount": 11304,
-  "file": "art-index-84a7c705106c4319.json",
-  "sha256": "84a7c705106c4319f0cb337626b2e3c3b96fdbf40aafd66539478f0ee74f37b5",
-  "bytes": 24583122,
-  "contentSha256": "5c2bf72a12a12a4d03e98aae23c75659d0d1aa2d389753b86c7d3f569f65697f",
+  "generatedAt": "2026-11-26T20:17:45Z",
+  "indexedCount": 11303,
+  "file": "art-index-4693933f24acd507.json",
+  "sha256": "4693933f24acd5073d9d9a53b0d13ce6db8bf94572548f5436bda3571310066a",
+  "bytes": 24580972,
+  "contentSha256": "f33012775d358a1f3fd253c2f367932118cbfc583aa72d1c321f7caabb9bf337",
   "coverage": {
     "collectionResult": "INCOMPLETE",
-    "enumeratedMetCandidates": 14426,
-    "metPendingMetadata": 276,
+    "enumeratedMetCandidates": 14425,
+    "metPendingMetadata": 275,
     "clevelandError": "",
     "imageCandidates": 11306,
-    "indexedImages": 11304,
-    "pendingImageCount": 2,
+    "indexedImages": 11303,
+    "pendingImageCount": 3,
     "pendingImages": [
       {
         "id": "met-42560",
@@ -22,9 +22,13 @@
       {
         "id": "met-45663",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
+      },
+      {
+        "id": "cma-153406",
+        "error": "The read operation timed out; The read operation timed out"
       }
     ],
-    "brightnessIndexed": 11304,
+    "brightnessIndexed": 11303,
     "styleTaggedWorks": 3011,
     "styleUntaggedWorks": 8295,
     "byCriterion": {
@@ -38,8 +42,8 @@
       "year": 11306,
       "source": 11306,
       "orientation": 3432,
-      "brightness": 11304,
-      "visual": 11304
+      "brightness": 11303,
+      "visual": 11303
     },
     "bySource": {
       "chicago": {
@@ -67,8 +71,8 @@
         "year": 3388,
         "source": 3388,
         "orientation": 3388,
-        "brightness": 3388,
-        "visual": 3388,
+        "brightness": 3387,
+        "visual": 3387,
         "genre": 709
       },
       "masterpieces": {
@@ -103,9 +107,9 @@
     }
   },
   "gzip": {
-    "file": "art-index-4d4e834db48f8ff4.json.gz",
-    "sha256": "4d4e834db48f8ff4585b9530c4699f682030640e2fca867f13d1fa514cf4a11e",
-    "bytes": 10668026,
-    "uncompressedBytes": 24583122
+    "file": "art-index-8caf4fcadbaa0191.json.gz",
+    "sha256": "8caf4fcadbaa0191c8a39e761de85cefb168fefdf978a60f63a76f58871de5f8",
+    "bytes": 10666713,
+    "uncompressedBytes": 24580972
   }
 }
