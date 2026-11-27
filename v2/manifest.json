@@ -1,34 +1,30 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-26T20:17:45Z",
-  "indexedCount": 11303,
-  "file": "art-index-4693933f24acd507.json",
-  "sha256": "4693933f24acd5073d9d9a53b0d13ce6db8bf94572548f5436bda3571310066a",
-  "bytes": 24580972,
-  "contentSha256": "f33012775d358a1f3fd253c2f367932118cbfc583aa72d1c321f7caabb9bf337",
+  "generatedAt": "2026-11-27T20:01:32Z",
+  "indexedCount": 11304,
+  "file": "art-index-68c5e0dfce787cdb.json",
+  "sha256": "68c5e0dfce787cdbb834eebdd824479dbc380b445378b972c6921d72e22a0a61",
+  "bytes": 24583122,
+  "contentSha256": "8628b7aca960f1615f7dd012903d0f18dd293bf86ecd132d841925df74da9eb8",
   "coverage": {
     "collectionResult": "INCOMPLETE",
-    "enumeratedMetCandidates": 14425,
+    "enumeratedMetCandidates": 14424,
     "metPendingMetadata": 275,
     "clevelandError": "",
     "imageCandidates": 11306,
-    "indexedImages": 11303,
-    "pendingImageCount": 3,
+    "indexedImages": 11304,
+    "pendingImageCount": 2,
     "pendingImages": [
-      {
-        "id": "met-42560",
-        "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
-      },
       {
         "id": "met-45663",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       },
       {
-        "id": "cma-153406",
-        "error": "The read operation timed out; The read operation timed out"
+        "id": "met-42560",
+        "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       }
     ],
-    "brightnessIndexed": 11303,
+    "brightnessIndexed": 11304,
     "styleTaggedWorks": 3011,
     "styleUntaggedWorks": 8295,
     "byCriterion": {
@@ -42,8 +38,8 @@
       "year": 11306,
       "source": 11306,
       "orientation": 3432,
-      "brightness": 11303,
-      "visual": 11303
+      "brightness": 11304,
+      "visual": 11304
     },
     "bySource": {
       "chicago": {
@@ -71,8 +67,8 @@
         "year": 3388,
         "source": 3388,
         "orientation": 3388,
-        "brightness": 3387,
-        "visual": 3387,
+        "brightness": 3388,
+        "visual": 3388,
         "genre": 709
       },
       "masterpieces": {
@@ -107,9 +103,9 @@
     }
   },
   "gzip": {
-    "file": "art-index-8caf4fcadbaa0191.json.gz",
-    "sha256": "8caf4fcadbaa0191c8a39e761de85cefb168fefdf978a60f63a76f58871de5f8",
-    "bytes": 10666713,
-    "uncompressedBytes": 24580972
+    "file": "art-index-1eee143e0943d4ca.json.gz",
+    "sha256": "1eee143e0943d4ca070613d513360eb216002d99f46f821e4f3cf11f6603a9c4",
+    "bytes": 10668080,
+    "uncompressedBytes": 24583122
   }
 }

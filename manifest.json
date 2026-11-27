@@ -1,31 +1,27 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-26T20:17:45Z",
-  "indexedCount": 11277,
-  "file": "art-index-64ebed10a9e9f3ed.json",
-  "sha256": "64ebed10a9e9f3ed2bbdd8e798e12cde15d679d996d9e579009d5682542ec110",
-  "bytes": 30903500,
-  "contentSha256": "0a04244cfa059324b48554d3d2aada92f95d68e1af89872d7073568df234b304",
+  "generatedAt": "2026-11-27T20:01:32Z",
+  "indexedCount": 11278,
+  "file": "art-index-0b866508ab78cc6b.json",
+  "sha256": "0b866508ab78cc6b7b7bcd2dbfa446c9c0a7525eb9dcf9c3e48bbacdaf953421",
+  "bytes": 30906294,
+  "contentSha256": "aede84664436f95b0f775f065979ef936d0a57afa4bcaad4da38703db50915f3",
   "coverage": {
     "collectionResult": "INCOMPLETE",
-    "enumeratedMetCandidates": 14425,
+    "enumeratedMetCandidates": 14424,
     "metPendingMetadata": 275,
     "clevelandError": "",
     "imageCandidates": 11280,
-    "indexedImages": 11277,
-    "pendingImageCount": 3,
+    "indexedImages": 11278,
+    "pendingImageCount": 2,
     "pendingImages": [
-      {
-        "id": "met-42560",
-        "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
-      },
       {
         "id": "met-45663",
         "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       },
       {
-        "id": "cma-153406",
-        "error": "The read operation timed out; The read operation timed out"
+        "id": "met-42560",
+        "error": "HTTP Error 404: Not Found; HTTP Error 404: Not Found"
       }
     ],
     "brightnessIndexed": 0,
@@ -43,7 +39,7 @@
       "source": 11280,
       "orientation": 3406,
       "brightness": 0,
-      "visual": 11277
+      "visual": 11278
     },
     "bySource": {
       "chicago": {
@@ -69,7 +65,7 @@
         "year": 3388,
         "source": 3388,
         "orientation": 3388,
-        "visual": 3387,
+        "visual": 3388,
         "genre": 709,
         "style": 282
       },
@@ -90,9 +86,9 @@
     }
   },
   "gzip": {
-    "file": "art-index-ae8507fc22694b47.json.gz",
-    "sha256": "ae8507fc22694b4783521f8c97ee4a8f6c707f5438acc78dca95e32c768b73b8",
-    "bytes": 6159580,
-    "uncompressedBytes": 30903500
+    "file": "art-index-7b5b32810abfbc7f.json.gz",
+    "sha256": "7b5b32810abfbc7fdde81f79ea487868b147a6189d4a3dae1effea050d387b39",
+    "bytes": 6160306,
+    "uncompressedBytes": 30906294
   }
 }
